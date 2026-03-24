@@ -1,1 +1,580 @@
-# mehedyhjony.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack | HackerVibe - Bug Hunter & SkyTeam Cybersecurity Founder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0a0a;
+            color: #00ff88;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Terminal Effect */
+        .terminal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #000, #001100, #000);
+            z-index: -2;
+            opacity: 0.9;
+        }
+
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #00ff88;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px #00ff88;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88, #00ccff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hacker-vibe {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .typing-effect {
+            border-right: 3px solid #00ff88;
+            animation: blink 1s infinite;
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 10px;
+            max-width: 800px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: #00ff88; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+            border-color: #00ccff;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: rgba(0, 204, 255, 0.1);
+            border: 1px solid #00ccff;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 204, 255, 0.3);
+        }
+
+        .github-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #333;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .github-badge:hover {
+            background: #161b22;
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: rgba(0, 255, 136, 0.15);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 80px 40px;
+            margin: 80px auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            color: #000;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #00ff88;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(0, 255, 136, 0.3);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Terminal Background -->
+    <div class="terminal-bg"></div>
+    
+    <!-- Matrix Effect Canvas -->
+    <canvas class="matrix" id="matrix"></canvas>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">HACKERVIBE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skyteam">SkyTeam</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1 class="hacker-vibe">JACK</h1>
+        <p class="subtitle">Bug Hunter | Penetration Tester | SkyTeam Cybersecurity Founder</p>
+        <div class="typing-effect" id="typing-text">
+            jack@hackervibe:~$ whoami
+            [Bug Hunter] [Cybersecurity Expert] [SkyTeam Founder]
+            jack@hackervibe:~$ cat services.txt
+            - Bug Bounty Hunting
+            - Penetration Testing
+            - Vulnerability Assessment
+            - Red Team Operations
+            - Custom Security Tools
+            jack@hackervibe:~$ 
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>CORE SERVICES</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <h3>BUG BOUNTY HUNTING</h3>
+                <p>High-impact vulnerability discovery across web, mobile, and API surfaces. Real-world payouts and CVEs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>PENTESTING</h3>
+                <p>Comprehensive penetration testing with detailed exploit chains, risk assessment, and remediation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>RED TEAM</h3>
+                <p>Advanced adversary simulation with custom tooling, evasion techniques, and persistence mechanisms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>CUSTOM TOOLS</h3>
+                <p>Bespoke security tools, fuzzers, and automation for your specific attack surface.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <h2>PORTFOLIO</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>🛡️ Critical RCE Chain</h3>
+                <p>Discovered and exploited a 4-stage RCE vulnerability chain in enterprise SaaS platform. CVSS 9.8.</p>
+                <a href="#" class="github-badge" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View Writeup
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <h3>🔓 Auth Bypass + Data Exfil</h3>
+                <p>Multi-vector authentication bypass leading to complete admin takeover and PII extraction.</p>
+                <a href="#" class="github-badge" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View Writeup
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <h3>⚡ SSRF → RCE Pivot</h3>
+                <p>Server-side request forgery chain escalating to remote code execution with persistence.</p>
+                <a href="#" class="github-badge" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View Writeup
+                </a>
+            </div>
+            <div class="portfolio-item">
+                <h3>🌐 Custom Fuzzer</h3>
+                <p>Developed specialized parameter fuzzer discovering zero-day XXE in GraphQL endpoint.</p>
+                <a href="#" class="github-badge" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View Code
+                </a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="https://github.com/YOURUSERNAME" class="github-badge" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fab fa-github"></i>
+                Full Portfolio on GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- SkyTeam -->
+    <section id="skyteam">
+        <h2>SKYTEAM CYBERSECURITY</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 1.3rem; margin-bottom: 40px;">
+                Founder of <strong>SkyTeam Cybersecurity</strong> - Elite red team delivering enterprise-grade security assessments.
+            </p>
+            <div style="background: rgba(0, 204, 255, 0.15); border: 1px solid #00ccff; border-radius: 15px; padding: 40px; margin-top: 40px;">
+                <h3 style="color: #00ccff; margin-bottom: 20px;">Services</h3>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                    <li>Full-scope penetration testing</li>
+                    <li>Cloud security assessments (AWS/Azure/GCP)</li>
+                    <li>Mobile & IoT security</li>
+                    <li>Threat hunting & incident response</li>
+                    <li>Security engineering & DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <h2>READY TO SECURE YOUR ASSETS?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 30px;">Contact me for bug bounties, pentests, or SkyTeam engagements</p>
+        <a href="mailto:jack@skyteam.io" class="cta-btn">
+            <i class="fas fa-rocket"></i> GET STARTED
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jack | HackerVibe | SkyTeam Cybersecurity | <a href="#home" style="color: #00ff88;">Back to Top</a></p>
+    </footer>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+            
+            drops.forEach((y, i) => {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, y * fontSize);
+                
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Typing Effect
+        const typingText = document.getElementById('typing-text');
+        const fullText = `jack@hackervibe:~$ whoami
+[Bug Hunter] [Cybersecurity Expert] [SkyTeam Founder]
+jack@hackervibe:~$ cat services.txt
+- Bug Bounty Hunting
+- Penetration Testing  
+- Vulnerability Assessment
+- Red Team Operations
+- Custom Security Tools
+jack@hackervibe:~$ `;
+
+        let i = 0;
+        function typeWriter() {
+            if (i < fullText.length) {
+                typingText.textContent = fullText.slice(0, i + 1);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
